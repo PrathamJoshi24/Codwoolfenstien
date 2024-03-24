@@ -1,4 +1,4 @@
-
+import asyncio
 import pygame as pg
 import sys
 from settings import *
@@ -120,13 +120,13 @@ class Game:
                   self.global_trigger = True
               self.player.single_fire_event(event)
   
-    def run(self):
+    async def run(self):
         while True:
             #v.cutscene1(self.screen)
             self.check_events()
             self.update()
             self.draw()
-
+            await asyncio.sleep(0)
 
 if __name__ == '__main__':
     game = Game()
